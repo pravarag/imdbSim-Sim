@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}{{ movie_name }}'s info{% endblock %}
+
+{% block body_block %}
+
+<h1> You made an enquiry about the movie {{ movie_name }}</h1>
+<h2>And here's it's details : </h2>
+
+<p>
+	<ul>
+		title || year || imdb_id
+		{% for i in movie_details %}
+
+			<li><h4>{{ i.title }} ||  {{ i.year }} || {{ i.imdb_id }}</h4></li>
+		{% endfor %}
+</p>
+{% endblock %}

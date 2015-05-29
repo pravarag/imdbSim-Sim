@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Register{% endblock %}
+
+{% block body_block %}
+
+<h1>Register with the IMDBAPP</h1>
+		{% if registered %}
+			<STRONG>Thank You For Registering!!</STRONG>
+			<a href="{% url 'login' %}">Return to LoginPage</a><br/>
+
+		{% else %}
+			<strong>Register here!!</strong>
+			<form id="user_form" method="post" action="/imdbApp/register/" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{ user_form.as_p }}
+			{{ profile_form.as_p }}
+
+			<input type="submit" name="submit" value="Register" />
+			</form>
+
+		{% endif %}
+
+
+{% endblock %}

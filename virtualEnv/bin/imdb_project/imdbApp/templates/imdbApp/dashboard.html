@@ -1,0 +1,33 @@
+
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}{{ user }}'s dashboard{% endblock %}
+<script type="text/javascript">
+	
+function validate()
+{
+
+}
+
+
+</script>
+
+
+{% block body_block %}
+
+
+<h1>Welcome {{ user }}</h1>
+
+<p>To search for a movie: <form id="search_movie" method="post" action="/imdbApp/movie_search/" enctype="multipart/form-data">
+	{% csrf_token %}
+<strong>Enter a Movie Name: <input type="text" name="movie_name" id="movieName" /><input type="submit" name="Search" value="SearchMovie" /></strong>
+
+
+
+</form>
+
+<h2><a href="/imdbApp/logout/">LogOut</a></h2>
+
+{% endblock %}

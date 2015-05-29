@@ -1,0 +1,36 @@
+
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}{% endblock %}
+
+{% block body_block %}
+
+<h1>Login</h1>
+	<form id="login_form" method="post" action="/imdbApp/dashboard/">
+			{% csrf_token %}
+			Username: <input type="text" name="username" value="" size="50"/><br/>
+			Password: <input type="password" name="password" value="" size="50"/><br/>
+			<input type="submit" value="submit" />
+	</form>
+
+	<h4><a href="{% url 'register' %}">Register new User!!</a></h4>
+
+	<p><h2>IMDB's Top 250 movies EVER!!</h2>
+		{% if moviesTop250 %}
+			<ul>
+				{% for i in moviesTop250 %}
+					
+						<li><h5>{{ i }}</h5></li>
+					
+				{% endfor %}
+			</ul>
+		{% else %}
+			<STRONG>Nothing here "SIRE"</STRONG>
+		{% endif %}
+
+
+	</p>
+
+{% endblock %}
