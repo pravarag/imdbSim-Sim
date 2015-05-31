@@ -18,15 +18,16 @@ function validate()
 {% block body_block %}
 
 
-<h1>Welcome {{ user }}</h1>
+	<h1>Welcome {{ user }}</h1>
+	<p>To search for a movie: 
+		<form id="search_movie" method="post" action="/imdbApp/movie_search/" enctype="multipart/form-data">
+			{% csrf_token %}
+			<strong>Enter a Movie Name: <input type="text" name="movie_name" id="movieName" /><input type="submit" name="Search" value="SearchMovie" /></strong></form><br/>
+		<form id="search_movie_byId" method="post" action="/imdbApp/movie_search_byId/" enctype="multipart/form-data">
+			{% csrf_token %}
+			<strong>Enter the movie Id: <input type="text" name="movie_id" id="movieId" /><input type="submit" name="SearchId" value="SearchMovie"/></strong></form><br/>
 
-<p>To search for a movie: <form id="search_movie" method="post" action="/imdbApp/movie_search/" enctype="multipart/form-data">
-	{% csrf_token %}
-<strong>Enter a Movie Name: <input type="text" name="movie_name" id="movieName" /><input type="submit" name="Search" value="SearchMovie" /></strong>
 
-
-
-</form>
 
 <h2><a href="/imdbApp/logout/">LogOut</a></h2>
 

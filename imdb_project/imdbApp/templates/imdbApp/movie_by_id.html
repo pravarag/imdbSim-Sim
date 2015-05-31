@@ -1,0 +1,17 @@
+
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}{{ movie_info.title }}'s informatin {% endblock %}
+
+{% block body_block %}
+
+	<h1>You made an enquiry about the movie and here is it's details:</h1>
+
+	Movie name: {{ movie_info.title }}<br/>
+	Movie rating: {{ movie_info.rating }}<br/>
+	Movie plot : {{ movie_info.plots }}<br/>
+
+
+{% endblock %}

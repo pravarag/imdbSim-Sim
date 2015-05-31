@@ -119,20 +119,24 @@ def movie_search(request):
 		context_dict['movie_name']=movie_title
 		print(movie_title)  ## test_code to print movie_title
 	
-	def inner_func(**kwargs):
-		dict_x={}
-		for i, v in kwargs.items():
-			dict_x[i]=v
-		return dict_x
-
-	list_1=[]
-	list_2=[]
-
 
 	movie_details = imdb.search_for_title(movie_title)
 
 	context_dict["movie_details"]=movie_details
 
 	return render(request, 'imdbApp/movie_info.html', context_dict)
+
+def movie_search_byId(request):
+	context_dict={}
+	if request.method=="POST":
+		movie_id=request.POST.get('movie_id')
+
+	movie_title=imdb.get_title_by_id(movie_id)
+	context_dict['movie_info']=movie_title
+
+	return render(request, 'imdbApp/movie_by_id.html', context_dict)
+
+
+
 
 
